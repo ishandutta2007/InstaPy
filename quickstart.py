@@ -6,6 +6,19 @@ from instapy import smart_run
 from instapy import set_workspace
 
 
+photo_comments = [
+    "Nice shot! @{}",
+    "I love your profile! @{}",
+    "Your feed is an inspiration :thumbsup:",
+    "Just incredible :open_mouth:",
+    "What camera did you use @{}?",
+    "Love your posts @{}",
+    "Looks awesome @{}",
+    "Getting inspired by you @{}",
+    ":raised_hands: Yes!",
+    "I can feel your passion @{} :muscle:",
+]
+
 # set workspace folder at desired location (default is at your home folder)
 set_workspace(path=None)
 
@@ -14,7 +27,5 @@ session = InstaPy()
 
 with smart_run(session):
     # general settings
-    session.set_dont_include(["friend1", "friend2", "friend3"])
-
-    # activity
-    session.like_by_tags(["natgeo"], amount=10)
+    session.comments = photo_comments
+    session.join_pods(topic="sports", engagement_mode="normal")
